@@ -16,24 +16,24 @@ wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2020.03.31'
 ,p_release=>'20.1.0.00.13'
 ,p_default_workspace_id=>1600470833210778
-,p_default_application_id=>108
+,p_default_application_id=>400
 ,p_default_id_offset=>0
 ,p_default_owner=>'APEX201'
 );
 end;
 /
  
-prompt APPLICATION 108 - Notion Sample App
+prompt APPLICATION 400 - Auftragsportal Online
 --
 -- Application Export:
---   Application:     108
---   Name:            Notion Sample App
---   Date and Time:   10:31 Saturday March 13, 2021
+--   Application:     400
+--   Name:            Auftragsportal Online
+--   Date and Time:   16:32 Saturday March 13, 2021
 --   Exported By:     DEV201
 --   Flashback:       0
 --   Export Type:     Component Export
 --   Manifest
---     PLUGIN: 118500209022341831
+--     PLUGIN: 120000518900037470
 --   Manifest End
 --   Version:         20.1.0.00.13
 --   Instance ID:     400145408901750
@@ -47,7 +47,7 @@ end;
 prompt --application/shared_components/plugins/item_type/com_madmexx_color_list
 begin
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(118500209022341831)
+ p_id=>wwv_flow_api.id(120000518900037470)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_name=>'COM.MADMEXX.COLOR_LIST'
 ,p_display_name=>'Color List'
@@ -71,6 +71,7 @@ wwv_flow_api.create_plugin(
 '',
 '    LV_ITEM_NAME    varchar2(1000) := APEX_PLUGIN.GET_INPUT_NAME_FOR_PAGE_ITEM(FALSE);',
 'begin',
+'    apex_debug.info(SYS.HTF.ESCAPE_SC(P_PARAM.VALUE),9);',
 '    -- Render the select list',
 '    SYS.HTP.P(''<select id="''',
 '              || P_ITEM.NAME',
@@ -91,7 +92,7 @@ wwv_flow_api.create_plugin(
 '              || P_ITEM.ATTRIBUTE_01',
 '              || ''</option>'');',
 '    for I in 1..45 loop',
-'        SYS.HTP.P(''<option class="u-color-''',
+'        SYS.HTP.P(''<option '' || case when SYS.HTF.ESCAPE_SC(P_PARAM.VALUE) = ''u-color-'' || I || LV_COLOR_TEXT then ''selected'' else null end  || '' class="u-color-''',
 '                  || I',
 '                  || LV_COLOR_MODIFIER',
 '                  || ''" value="u-color-''',
@@ -108,14 +109,15 @@ wwv_flow_api.create_plugin(
 ,p_render_function=>'RENDER_COLOR_LIST'
 ,p_standard_attributes=>'VISIBLE:SESSION_STATE:READONLY:SOURCE:WIDTH:HEIGHT:PLACEHOLDER'
 ,p_substitute_attributes=>true
+,p_reference_id=>118500209022341831
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>'See Github for comments and help.'
 ,p_version_identifier=>'0.1'
 ,p_about_url=>'https://github.com/madmexx2002/Apex-Color-List'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(119400620201560528)
-,p_plugin_id=>wwv_flow_api.id(118500209022341831)
+ p_id=>wwv_flow_api.id(122900384225124437)
+,p_plugin_id=>wwv_flow_api.id(120000518900037470)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -127,8 +129,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_translatable=>true
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(119702763207678506)
-,p_plugin_id=>wwv_flow_api.id(118500209022341831)
+ p_id=>wwv_flow_api.id(122900743854124439)
+,p_plugin_id=>wwv_flow_api.id(120000518900037470)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -141,32 +143,32 @@ wwv_flow_api.create_plugin_attribute(
 ,p_lov_type=>'STATIC'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(119703349428680396)
-,p_plugin_attribute_id=>wwv_flow_api.id(119702763207678506)
+ p_id=>wwv_flow_api.id(122902122968124439)
+,p_plugin_attribute_id=>wwv_flow_api.id(122900743854124439)
 ,p_display_sequence=>10
 ,p_display_value=>'Block'
 ,p_return_value=>'Block'
 ,p_help_text=>'Background color and foreground color'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(119703710287681767)
-,p_plugin_attribute_id=>wwv_flow_api.id(119702763207678506)
+ p_id=>wwv_flow_api.id(122902630865124439)
+,p_plugin_attribute_id=>wwv_flow_api.id(122900743854124439)
 ,p_display_sequence=>20
 ,p_display_value=>'Text'
 ,p_return_value=>'-text'
 ,p_help_text=>'Foreground color'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(119704102153682839)
-,p_plugin_attribute_id=>wwv_flow_api.id(119702763207678506)
+ p_id=>wwv_flow_api.id(122901187262124439)
+,p_plugin_attribute_id=>wwv_flow_api.id(122900743854124439)
 ,p_display_sequence=>30
 ,p_display_value=>'Background'
 ,p_return_value=>'-bg'
 ,p_help_text=>'Background color'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(119704533565684065)
-,p_plugin_attribute_id=>wwv_flow_api.id(119702763207678506)
+ p_id=>wwv_flow_api.id(122901656903124439)
+,p_plugin_attribute_id=>wwv_flow_api.id(122900743854124439)
 ,p_display_sequence=>40
 ,p_display_value=>'Border'
 ,p_return_value=>'-border'
