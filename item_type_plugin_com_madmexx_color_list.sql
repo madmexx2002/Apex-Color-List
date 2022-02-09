@@ -28,7 +28,7 @@ prompt APPLICATION 130 - Sample Application
 -- Application Export:
 --   Application:     130
 --   Name:            Sample Application
---   Date and Time:   18:26 Saturday February 5, 2022
+--   Date and Time:   21:26 Wednesday February 9, 2022
 --   Exported By:     WSADMIN
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -69,7 +69,7 @@ wwv_flow_api.create_plugin(
 '    ',
 'begin',
 '    -- Render the select list',
-'    sys.HTP.p(''<select onchange="SetColor('''''' || upper(P_ITEM.name) || '''''')" id="''',
+'    sys.HTP.p(''<select id="''',
 '              || P_ITEM.name',
 '              || ''" class="selectlist apex-item-select ''',
 '              || P_ITEM.ELEMENT_CSS_CLASSES',
@@ -106,6 +106,10 @@ wwv_flow_api.create_plugin(
 '                                P_DIRECTORY      => P_PLUGIN.FILE_PREFIX ,',
 '                                P_VERSION        => null,',
 '                                P_SKIP_EXTENSION => false);',
+'',
+'apex_javascript.add_onload_code (',
+'    p_code => ''init('''''' || upper(P_ITEM.name) || '''''');''',
+'    ,p_key  => ''color_list'' );',
 ' ',
 'end RENDER_COLOR_LIST;'))
 ,p_api_version=>2
@@ -123,7 +127,7 @@ wwv_flow_api.create_plugin(
 '-- Purpose: Select a color modifier from a select list plugin. Build the select list.',
 '-- Update:  2022-02-05  Set Color onChange event',
 '/* ====================================================================================================================================================================================  */'))
-,p_files_version=>4
+,p_files_version=>7
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(398501492214381423)
@@ -188,15 +192,18 @@ end;
 /
 begin
 wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
-wwv_flow_api.g_varchar2_table(1) := '66756E6374696F6E20536574436F6C6F7228704974656D494429207B0D0A202020202428272327202B20704974656D4944292E72656D6F7665436C6173732866756E6374696F6E2028696E6465782C20636C6173734E616D6529207B0D0A202020202020';
+wwv_flow_api.g_varchar2_table(1) := '66756E6374696F6E20736574436F6C6F7228704974656D494429207B0D0A202020202428272327202B20704974656D4944292E72656D6F7665436C6173732866756E6374696F6E2028696E6465782C20636C6173734E616D6529207B0D0A202020202020';
 wwv_flow_api.g_varchar2_table(2) := '202072657475726E2028636C6173734E616D652E6D61746368282F285E7C5C7329752D636F6C6F722D5C532B2F6729207C7C205B5D292E6A6F696E28272027293B0D0A202020207D292E616464436C617373282428272327202B20704974656D4944292E';
-wwv_flow_api.g_varchar2_table(3) := '76616C2829202B20272D626727293B0D0A7D';
+wwv_flow_api.g_varchar2_table(3) := '76616C2829202B20272D626727293B0D0A7D0D0A0D0A66756E6374696F6E20696E697428704974656D494429207B0D0A202020202F2F20496E697420737562736372697074696F6E2061667465722070616765206C6F61640D0A20202020617065782E6A';
+wwv_flow_api.g_varchar2_table(4) := '51756572792877696E646F77292E6F6E28277468656D6534327265616479272C2066756E6374696F6E202829207B0D0A20202020202020202F2F2052756E20616674657220756920656C656D656E74732072656E6465726564206F6E20706167650D0A20';
+wwv_flow_api.g_varchar2_table(5) := '20202020202020736574436F6C6F7228704974656D4944293B0D0A202020207D290D0A0D0A202020202F2F20496E6974206F6E436C69636B206576656E7420666F7220627574746F6E7320776974682061747472696275746520646174612D6576656E74';
+wwv_flow_api.g_varchar2_table(6) := '0D0A20202020617065782E6A517565727928272327202B20704974656D4944292E6F6E28276368616E6765272C2066756E6374696F6E202829207B0D0A2020202020202020736574436F6C6F7228704974656D4944293B0D0A202020207D290D0A7D';
 null;
 end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(289900595008846086)
+ p_id=>wwv_flow_api.id(290600693232049351)
 ,p_plugin_id=>wwv_flow_api.id(395601626889294456)
 ,p_file_name=>'main.js'
 ,p_mime_type=>'application/javascript'
