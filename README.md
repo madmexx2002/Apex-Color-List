@@ -4,8 +4,6 @@ https://user-images.githubusercontent.com/36326420/153469031-dd93948f-faf2-41d7-
 
 # Apex Color List
 
-https://user-images.githubusercontent.com/36326420/153468615-cc21e66b-615a-4c16-9bc9-d4efea40e0de.mp4
-
 ## Select Color Modifiers List Plugin for Oracle Apex
 
 A very simple Plugin for Oracle Apex to choose the right color modifier from a select list.
