@@ -2,7 +2,7 @@
 
 # Apex Color List
 
-https://github.com/madmexx2002/Apex-Color-List/blob/77afac8a29a8b9852d605bf2da85f44f075771e6/doc/2022-02-10_18h52_33.mp4
+https://user-images.githubusercontent.com/36326420/153468615-cc21e66b-615a-4c16-9bc9-d4efea40e0de.mp4
 
 ## Select Color Modifiers List Plugin for Oracle Apex
 
