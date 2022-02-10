@@ -13,3 +13,7 @@ For example, user can customize a report of type card template with a custom col
 
  - Set null value label
  - Select the right modifier class (Block, Text, Background or Border)
+
+
+https://user-images.githubusercontent.com/36326420/153469031-dd93948f-faf2-41d7-b764-5d30149caf57.mp4
+
